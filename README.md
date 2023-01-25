@@ -1,4 +1,5 @@
-# overdrive-plex
+# Overdrive to Plex
+
 Automates the process of opening Overdrive .odm files and formatting them for use in Plex including editing down to chapters and adding metadata on Mac OS.
 
 See the end of this readme for a long list of credits as this code is based on many pre-existing projects and scripts and would fully not be possible without them.
