@@ -1,26 +1,18 @@
 #!/bin/bash
 
-#download odm's
+#download odm's to chosen directory
 
-# NOTE: The odm's come with metadata -- for the future system use that file because it's more reliable.
+#navigate to folder where scripts are located
 
-# navigate to the folder where the first script is located
-cd /Users/jonas/Documents/SERVER/FRAMEWORK
+cd /Users/jonas/Documents/code/overdrive-plex
 
 # unpack odm's
 bash overdrivedelete.sh
 
-# navigate to the folder where the second script is located
-cd /Users/jonas/Documents/SERVER/BOOKS/TEST
-
 # extract chapters
 python3.10 extract_overdrive_chapters.py /Users/jonas/Documents/SERVER/BOOKS/01_ANNEX
 
-# navigate back to the directory where the shell script is located
-cd /Users/jonas/Documents/SERVER/LOCKED_CODE
-
 # clean metadata
-#python3.10 00_format_metadata.py
 python3.10 metadatatoxml.py
 
 python3.10 xmlparse.py
