@@ -40,7 +40,7 @@ The order of operations for the whole process is as follows:
     vii) Add metadata to the chapterized mp3's including track numbers and any simple metadata provided by Overdrive and move them to the bookshelf
 3) Optional but Recommended: Use seanap's audible sources for mp3tag to correct and expand metadata for each book.
     I say optional because if your goal here is to just extract chapterized versions of the odm mp3's and start listening this isn't necessary. But for anyone like me who get's a bit picky about the way their library is formatted going the extra mile to addend all the proper metadata here is key. Another issue that arises with the original process is that Overdrive's metadata files are heavily lacking in details. As a result it's often the case that narrator names get messed up etc. If you care about precision this extra step is key.
-4) Add to your server
+4) Add to your collection
 
 You can find a lot of great advice and detailed walk-throughs on how to setup Plex libaries with audiobook functionality here: https://github.com/seanap/Plex-Audiobook-Guide
 
