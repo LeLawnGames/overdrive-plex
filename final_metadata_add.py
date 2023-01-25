@@ -5,6 +5,7 @@ import shutil
 import json
 import re
 from mutagen.id3 import ID3, APIC, TIT2, TPE1, TCOM, TCON, TSOA, TRCK, TIT3, TALB, COMM
+from config import circulation,bookshelf
 
 def traverse_directory(directory):
     # Iterate through all subfolders and files
@@ -65,7 +66,7 @@ def add_metadata(directory):
                 audio.save()
 
 # Point the script at a directory
-directory = "/Users/jonas/Documents/SERVER/BOOKS/01_LABELED AUDIO"
+directory = circulation
 
 # Traverse the directory and apply the metadata to the mp3 files
 traverse_directory(directory)
@@ -75,4 +76,4 @@ for root, dirs, files in os.walk(directory):
         subfolder_path = os.path.join(root, dir)
         parent_folder = os.path.dirname(subfolder_path)
         if parent_folder == directory:
-            shutil.move(subfolder_path, "/Users/jonas/Documents/SERVER/BOOKS/02_READY FOR PLEX")
+            shutil.move(subfolder_path, bookshelf)

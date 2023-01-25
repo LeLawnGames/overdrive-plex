@@ -1,8 +1,10 @@
 #Confirmed working as of 1/22/23
 
 import os
+from config import annex
 
-root_dir = '/Users/jonas/Documents/SERVER/BOOKS/TEST'
+root_dir = annex
+
 for subdir, dirs, files in os.walk(root_dir):
     for file in files:
         file_path = os.path.join(subdir, file)

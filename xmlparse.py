@@ -3,6 +3,7 @@
 import os
 import xml.etree.ElementTree as ET
 import json
+from config import annex
 
 def extract_metadata(xml_file):
     tree = ET.parse(xml_file)
@@ -35,5 +36,5 @@ def process_folder(folder_path):
                     json.dump(metadata, f)
                 print(f"Processed {xml_file}, output saved to {cleaned_file}")
 
-folder_path = "/Users/jonas/Documents/SERVER/BOOKS/TEST"
+folder_path = annex
 process_folder(folder_path)

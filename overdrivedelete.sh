@@ -1,7 +1,15 @@
 #This officially works for the full ODM extraction as of 1/21/23 at 9:54pm
 
-input_folder="/Users/jonas/Documents/SERVER/QUEUE"
-output_folder="/Users/jonas/Documents/SERVER/BOOKS/01_ANNEX"
+# Define the directories
+source config.env
+input_folder=$queue
+output_folder=$annex
+
+shopt -s nullglob
+if [ -z "$(find $input_folder -type f -name '*.odm')" ]; then
+  echo "No .odm files found in $input_folder, exiting."
+  exit 0
+fi
 
 # Open ODM's in temporary directory and export contents
 for file in $input_folder/*.odm

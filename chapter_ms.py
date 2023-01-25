@@ -3,6 +3,7 @@
 import os
 import re
 from datetime import datetime, timedelta
+from config import annex
 
 def duration_to_milliseconds(duration):
     hours, minutes, seconds = duration.split(':')
@@ -10,7 +11,7 @@ def duration_to_milliseconds(duration):
     return int(seconds * 1000)
 
 # path to directory containing the files
-directory = '/Users/jonas/Documents/SERVER/BOOKS/TEST'
+directory = annex
 
 # loop through all files in directory tree
 for dirpath, dirnames, filenames in os.walk(directory):

@@ -2,15 +2,15 @@
 
 #download odm's to chosen directory
 
-#navigate to folder where scripts are located
-
-cd /Users/jonas/Documents/code/overdrive-plex
+# configure variables
+python3.10 config.py
 
 # unpack odm's
 bash overdrivedelete.sh
 
-# extract chapters
-python3.10 extract_overdrive_chapters.py /Users/jonas/Documents/SERVER/BOOKS/01_ANNEX
+# extract chapters, specify folder holding the unpackaged overdrive mp3's
+source config.env
+python3.10 extract_overdrive_chapters.py $annex
 
 # clean metadata
 python3.10 metadatatoxml.py

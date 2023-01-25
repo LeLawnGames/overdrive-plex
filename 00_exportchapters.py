@@ -3,6 +3,7 @@
 import os
 import shutil
 from pydub import AudioSegment
+from config import annex,circulation,archive
 
 AudioSegment.converter = "/opt/homebrew/Cellar/ffmpeg/5.1.2_3/bin/ffmpeg"
 AudioSegment.ffmpeg = "/opt/homebrew/Cellar/ffmpeg/5.1.2_3/bin/ffmpeg"
@@ -13,7 +14,7 @@ def export_audio_file(start, end, name):
     end_ms = int(end)
     export = combined[start_ms:end_ms]
     folder_name = folder.split(" - ")[-1].strip()
-    destination_path = '/Users/jonas/Documents/SERVER/BOOKS/01_LABELED AUDIO'
+    destination_path = circulation
     author_name = folder.split(" - ")[0].strip()
     export_folder = os.path.join(destination_path, author_name, folder_name)
     author_folder = os.path.join(destination_path, author_name)
@@ -33,7 +34,7 @@ def export_audio_file(start, end, name):
         shutil.copy(album_art, export_folder)
     shutil.copy(metadata_file, export_folder)
 
-main_directory = "/Users/jonas/Documents/SERVER/BOOKS/TEST"
+main_directory = annex
 
 for folder in sorted(os.listdir(main_directory)):
     folder_path = os.path.join(main_directory, folder)
@@ -80,4 +81,4 @@ for folder in sorted(os.listdir(main_directory)):
     
     #Archive everything except chapters_list.py
     if folder_path != "chapters_list.py":
-        shutil.move(folder_path, '/Users/jonas/Documents/SERVER/BOOKS/00_ARCHIVE/' + folder)
+        shutil.move(folder_path, archive + folder)

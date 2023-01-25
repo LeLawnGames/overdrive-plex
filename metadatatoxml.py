@@ -2,8 +2,9 @@
 
 import os
 import shutil
+from config import annex
 
-root_dir = '/Users/jonas/Documents/SERVER/BOOKS/TEST'
+root_dir = annex
 
 for subdir, dirs, files in os.walk(root_dir):
     for file in files:
