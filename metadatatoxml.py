@@ -1,0 +1,14 @@
+#Confirmed working as of 1/22/23
+
+import os
+import shutil
+
+root_dir = '/Users/jonas/Documents/SERVER/BOOKS/TEST'
+
+for subdir, dirs, files in os.walk(root_dir):
+    for file in files:
+        if file.endswith('.odm.metadata'):
+            old_file = os.path.join(subdir, file)
+            new_file = os.path.join(subdir, "metadata.xml")
+            shutil.copy2(old_file, new_file)
+            break

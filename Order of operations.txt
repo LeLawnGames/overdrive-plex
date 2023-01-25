@@ -1,0 +1,12 @@
+Order of operations:
+
+01: Download .odm files
+02: Use sh overdrivedelete.sh to unpack
+03: Use chapters_list.py to get the chapters times and titles
+04: Use metadatatoxml.py to get xml
+05: Use xmlparse.py to clean metadata
+06: Use chapter_ms.py to put the chapter times in ms
+07: Use durations.py to create the duration spans in the chapter file
+08: Use 00_exportchapters.py to get the labeled audio, pull the metadata txt & folder.jpg into the new folder, and move the old folder to archive
+09: Use final_metadata_add.py to add metadata to the tracks and move the author folders to 02_READY FOR PLEX
+10: Drag to Plex -- the odm download and this part are the two manuals components and I consider those safeguards. Worst case scenario if something went wrong you'd probably see it during this step and you could revert to the archives.
