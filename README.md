@@ -1,5 +1,5 @@
-# odm-plex
-Automates the process of opening ODM's and formatting them for use in Plex including editing down to chapters and adding metadata on Mac OS.
+# overdrive-plex
+Automates the process of opening Overdrive .odm files and formatting them for use in Plex including editing down to chapters and adding metadata on Mac OS.
 
 See the end of this readme for a long list of credits as this code is based on many pre-existing projects and scripts and would fully not be possible without them.
 
@@ -51,4 +51,3 @@ Thanks to:
 chbrown for creating and maintaining https://github.com/chbrown/overdrive
 ex-nerd for the wonderful code "extract_overdrive_chapters.py"
 seanap for the Plex Audiobook Guide
-jw3134 for the support and guidance
