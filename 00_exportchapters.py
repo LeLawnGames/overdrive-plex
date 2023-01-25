@@ -81,4 +81,4 @@ for folder in sorted(os.listdir(main_directory)):
     
     #Archive everything except chapters_list.py
     if folder_path != "chapters_list.py":
-        shutil.move(folder_path, archive + folder)
+        shutil.move(folder_path, archive/ + folder)

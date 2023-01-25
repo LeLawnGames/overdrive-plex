@@ -18,7 +18,7 @@ annex="/Users/jonas/Documents/SERVER/BOOKS/01_ANNEX"
 circulation="/Users/jonas/Documents/SERVER/BOOKS/02_CIRCULATION"
 
 # Where the final finished product will land
-bookshelf="/Users/jonas/Documents/SERVER/BOOKS/03_READY_FOR_PLEX"
+bookshelf="/Users/jonas/Documents/SERVER/BOOKS/03_BOOKSHELF"
 
 # Where the scraps go
 archive="/Users/jonas/Documents/SERVER/BOOKS/00_ARCHIVE"
