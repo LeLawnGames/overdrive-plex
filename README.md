@@ -75,3 +75,5 @@ And lastly all of this was inspired by my discovery of the [Prologue App](https:
 - @chbrown for creating and maintaining https://github.com/chbrown/overdrive
 - @ex-nerd for the wonderful code "extract_overdrive_chapters.py"
 - @seanap for the Plex Audiobook Guide
+- @jw3739 for all the support and guidance
+- And of course thank you to ChatGPT for helping me through my darkest hours
