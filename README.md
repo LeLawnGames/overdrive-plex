@@ -7,19 +7,21 @@ See the end of this readme for a long list of credits as this code is based on m
 ## Overview
 The simple goal here is to make the process of unpacking and editing .odm files a lot simpler. The issue I have run into is that Overdrive provides mp3 files split up into parts, but those parts don't align with chapters and the only real solution I've found out there is to use Audacity to manually label each chapter. I did that for a while and it sucked so I learned what I needed to learn to scrape this together.
 
-Unfortunately, this does not take all manual labor out of the process as I am not skilled enough to make that leap. Important manual steps in this process are 1) Downloading the .odm files from overdrive, and 2) Adding them to wherever it is you want to access them whether it be a server, etc.
+Unfortunately, this does not take all manual labor out of the process as I am not skilled enough to make that leap. Important manual steps in this process are...
+1. Downloading the .odm files from overdrive
+2. Adding them to wherever it is you want to access them whether it be a server, etc.
 
 I will note that **I am not an expert**. I taught myself how to use python and bash in order to try and automate a process that I was getting frustrated by. With that being said I welcome anyone who has stumbled across this to take it and improve it for themselves. I also apologize to anyone using this who gets exasperated by any stupid mistakes or redundant processes I created along the way. If there were better solutions out there I would have used them instead of making this but as it stands now I couldn't find anything out there that automated the process to this extent so, for now, we all have to deal.
 
 ### This code assumes you have installed the following:
 
 - **[chbrown/overdrive](https://github.com/chbrown/overdrive)**
-- **python3.10**
-- **pydub**
-- **ffmpeg**
-- **mutagen**
+- **[python3](https://www.python.org/)**
+- **[pydub](https://github.com/jiaaro/pydub/)**
+- **[ffmpeg](https://github.com/jiaaro/pydub#getting-ffmpeg-set-up)**
+- **[mutagen](https://mutagen.readthedocs.io/en/latest/)**
 
-You can reference https://github.com/chbrown/overdrive for setup on the chbrown script as well as tips and tricks for all things Overdrive.
+Reference the linked repositories for tips and tricks on setting up each one.
 
 ## Organization
 I've organized my directory into the following folder structures mainly because I find it easier to follow the process when I'm visualizing the steps, but it should go without saying that you can mix and match this to your liking.
