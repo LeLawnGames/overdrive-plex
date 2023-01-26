@@ -43,7 +43,7 @@ The main bash script assumes that all of the scripts are sitting in the same fol
 
 ### Note on .odm's
 
-A known issue with downloading the contents of .odm files is that in some cases certain errors related to the license will occur. In those cases this script will skip the file in question and continue on. The only fix for that is to redownload the odm.
+A known issue with downloading the contents of .odm files is that in some cases certain errors related to the license will occur. The only fix for that is to redownload the odm.
 
 ## Execution
 ### The order of operations for the whole process is as follows:
