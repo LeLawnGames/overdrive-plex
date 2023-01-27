@@ -6,22 +6,22 @@
 python3.10 config.py
 
 # unpack odm's
-bash overdrivedelete.sh
+#bash overdrivedelete.sh
 
 # extract chapters, specify folder holding the unpackaged overdrive mp3's
-source config.env
-python3 extract_overdrive_chapters.py $annex
+##source config.env
+#python3 extract_overdrive_chapters.py $annex
 
 # clean metadata
-python3 metadatatoxml.py
+#python3 metadatatoxml.py
 
-python3 xmlparse.py
+##python3 xmlparse.py
 
 # turn chapters into ms
-python3 chapter_ms.py
+#python3 chapter_ms.py
 
 # format durations
-python3 durations.py
+#python3 durations.py
 
 # export labeled audio and archive original folder 
 # FIX: MAKE SURE IT CAN ADD TO EXISTING AUTHOR FOLDER

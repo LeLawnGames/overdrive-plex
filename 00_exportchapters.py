@@ -80,5 +80,5 @@ for folder in sorted(os.listdir(main_directory)):
             print(f"Error processing {folder}: {e}")
     
     #Archive everything except chapters_list.py
-    if folder_path != "chapters_list.py":
-        shutil.move(folder_path, archive/ + folder)
+    if os.path.isdir(folder_path) and folder != 'chapters_list.py':
+        shutil.move(folder_path, archive + '/' + folder)
