@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
-# Credit to ex-nerd
-#
-# Recursively scans current or specified directory for all subdirectories
-# containing mp3 files. If these mp3 files contain overdrive chapter markers
-# (id3 tag), writes overdrive_chapters.txt to the same directory.
-#
-# Usage:
-#
-# extract_overdrive_chapters.py [optional directory path]
-#
-# Use with build_m4b from https://github.com/ex-nerd/audiotools
-#
-# Note: Due to overdrive low quality, there is no point in encoding aac files
-# with better than: 64kbps stereo, HE, optimize for voice
-#
+'''
+Credit to ex-nerd
+
+Recursively scans current or specified directory for all subdirectories
+containing mp3 files. If these mp3 files contain overdrive chapter markers
+(id3 tag), writes overdrive_chapters.txt to the same directory.
+
+Usage:
+
+extract_overdrive_chapters.py [optional directory path]
+
+Use with build_m4b from https://github.com/ex-nerd/audiotools
+
+Note: Due to overdrive low quality, there is no point in encoding aac files
+with better than: 64kbps stereo, HE, optimize for voice
+'''
 
 import os, sys, re
 import mutagen.id3 as id3
@@ -55,16 +56,16 @@ def load_mp3(total, dir, file):
         name = re.sub(r"^\*(.+)\*$", r"\1", name)
         name = re.sub(
             r"\s*\([^)]*\)$", "", name
-        )  # ignore any sub-chapter markers from Overdrive
+        )  '''ignore any sub-chapter markers from Overdrive'''
         name = re.sub(
             r"\s+\(?continued\)?$", "", name
-        )  # ignore any sub-chapter markers from Overdrive
+        )  '''ignore any sub-chapter markers from Overdrive'''
         name = re.sub(
             r"\s+-\s*$", "", name
-        )  # ignore any sub-chapter markers from Overdrive
+        )  '''ignore any sub-chapter markers from Overdrive'''
         name = re.sub(
             r"^Dis[kc]\s+\d+\W*$", "", name
-        )  # ignore any disk markers from Overdrive
+        )  '''ignore any disk markers from Overdrive'''
         name = name.strip()
         t_parts = list(length.split(":"))
         t_parts.reverse()
@@ -81,7 +82,7 @@ def load_mp3(total, dir, file):
 def visit(dirname, filenames):
     print(dirname)
     os.chdir(dirname)
-    # Parse the files
+    '''Parse the files'''
     total = 0
     all_chapters = OrderedDict()
     for file in sorted(filenames):

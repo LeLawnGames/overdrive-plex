@@ -1,4 +1,5 @@
-#Confirmed working as of 1/22/23
+
+'''Takes the .odm.metadata file and turns it into metadata.xml'''
 
 import os
 import shutil

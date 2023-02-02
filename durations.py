@@ -1,4 +1,4 @@
-#Confirmed working as of 1/22/23
+'''Takes the contents of the Milliseconds durations/labels file and creates start/end times'''
 
 import os
 from config import annex
@@ -7,6 +7,7 @@ root_dir = annex
 
 for subdir, dirs, files in os.walk(root_dir):
     for file in files:
+        '''Locates "overdrive_chapters_ms.txt"'''
         file_path = os.path.join(subdir, file)
         if file == 'overdrive_chapters_ms.txt':
             with open(file_path, "r") as file:
@@ -16,23 +17,24 @@ for subdir, dirs, files in os.walk(root_dir):
                 for i in range(len(lines)):
                     parts = lines[i].split(" ")
                     if i == len(lines) - 2:
-                        # If it's the second-to-last line, write the last line's number and 0
+                        '''If it's the second-to-last line, write the last line's number and 0'''
                         file.write(parts[0])
                         file.write("\t" + lines[i + 1].split(" ")[0])
                         file.write("0")
                     elif i != len(lines) - 1:
-                        # Otherwise, write the number from the next line to the file
+                        '''Otherwise, write the number from the next line to the file'''
                         file.write(parts[0])
                         file.write("\t" + lines[i + 1].split(" ")[0])
                     else:
-                        # If it's the last line, just write the number and 0
+                        '''If it's the last line, just write the number and 0'''
                         if parts[0] != "":
                             file.write(parts[0])
                             file.write("0")
-                    # Write the rest of the line to the file
+                    '''Write the rest of the line to the file'''
                     file.write("\t" + " ".join(parts[1:]))
                     if i != len(lines) - 1 or (i == len(lines) - 1 and lines[i] != ""):
                         file.write("\n")
                 if lines[-1] == "":
+                    '''Ensures there's no empty line at the end of the txt'''
                     file.seek(file.tell()-1, os.SEEK_SET)
                     file.truncate()
