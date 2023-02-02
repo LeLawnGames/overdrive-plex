@@ -49,13 +49,13 @@ A known issue with downloading the contents of .odm files is that in some cases 
 ### The order of operations for the whole process is as follows:
 1. **Download ODM's**
 2. **Run overdrive_full.sh**
-    1. Unpack odm's & add to annex along with metadata file
-    2. Extract list of chapters
-    3. Format metadata into xml
-    4. Convert chapter start times to ms
-    5. Create final labels file showing chapter durations
-    6. Import mp3's end to end and export chapterized versions to circulation using labels file
-    7. Add metadata to the chapterized mp3's including track numbers and any simple metadata provided by Overdrive and move them to the bookshelf
+    1. Unpacks odm's & add to annex along with metadata file
+    2. Extracts list of chapters
+    3. Formats metadata into xml
+    4. Converts chapter start times to ms
+    5. Creates final labels file showing chapter durations
+    6. Imports mp3's end to end and export chapterized versions to circulation using labels file
+    7. Adds metadata to the chapterized mp3's including track numbers and any simple metadata provided by Overdrive and move them to the bookshelf
 3. **Optional but Recommended:** Use [seanap's audible sources](https://github.com/seanap/Plex-Audiobook-Guide) for mp3tag to correct and expand metadata for each book. 
     <details><summary>More details</summary>
     <p>
@@ -67,7 +67,7 @@ A known issue with downloading the contents of .odm files is that in some cases 
 You can find a lot of great advice and detailed walk-throughs on how to setup Plex libaries with audiobook functionality here: https://github.com/seanap/Plex-Audiobook-Guide
 
 ## Final Note
-I decided not to involve an automated mb4 script in this because I've found that that process is still a bit manual for me. The reason being that I like packaging mb4's based around parts instead of tossing the full book inside of one or two. It's difficult to figure out a way of automating that given the lack of clear delineation of parts so I'm keep it manual for now.
+I decided not to involve an automated mb4 script in this because I've found that that process is still a bit manual for me. The reason being that I like packaging mb4's based around parts instead of tossing the full book inside of one or two. It's difficult to figure out a way of automating that given the lack of clear delineation of parts so I'm keeping it manual for now.
 
 And lastly all of this was inspired by my discovery of the [Prologue App](https://prologue.audio/) by @lcharlick, which, in my opinion, is the best iOS app for all things personal audiobooks collection. This whole process has been built around optimizing my experience using that app in tandem with Plex but it should be malleable to other systems with a little tweaking here and there.
 
@@ -76,4 +76,4 @@ And lastly all of this was inspired by my discovery of the [Prologue App](https:
 - @ex-nerd for the wonderful code "extract_overdrive_chapters.py"
 - @seanap for the Plex Audiobook Guide
 - @jw3739 for all the support and guidance
-- And of course thank you to ChatGPT for helping me through my darkest hours
+- And of course ChatGPT for helping me through my darkest hours
