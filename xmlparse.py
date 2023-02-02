@@ -1,4 +1,4 @@
-#Confirmed as of 1/22/23
+'''Parses the metadata.xml file into only the required data'''
 
 import os
 import xml.etree.ElementTree as ET
@@ -10,9 +10,11 @@ def extract_metadata(xml_file):
     root = tree.getroot()
     data = {}
     for child in root:
+        '''Finds occurrences of Title, Creators, Subjects and isolates'''
         if child.tag == "Title":
             data["Title"] = child.text
         elif child.tag == "Creators":
+            '''Identifies Authors and Narrators'''
             for creator in child:
                 if creator.attrib["role"] == "Author":
                     data["Author"] = creator.text
@@ -26,7 +28,8 @@ def extract_metadata(xml_file):
     return data
 
 def process_folder(folder_path):
-    for dirpath, dirnames, filenames in os.walk(folder_path):
+    '''Walks to metadata.xml & exports the parsed version as cleaned_metadata.json'''
+    for dirpath, filenames in os.walk(folder_path):
         for filename in filenames:
             if filename == "metadata.xml":
                 xml_file = os.path.join(dirpath, filename)
