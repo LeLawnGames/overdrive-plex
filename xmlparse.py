@@ -28,8 +28,8 @@ def extract_metadata(xml_file):
     return data
 
 def process_folder(folder_path):
-    '''Walks to metadata.xml & exports the parsed version as cleaned_metadata.json'''
-    for dirpath, filenames in os.walk(folder_path):
+    #Walks to metadata.xml & exports the parsed version as cleaned_metadata.json
+    for dirpath, dirname, filenames in os.walk(folder_path):
         for filename in filenames:
             if filename == "metadata.xml":
                 xml_file = os.path.join(dirpath, filename)
@@ -39,5 +39,5 @@ def process_folder(folder_path):
                     json.dump(metadata, f)
                 print(f"Processed {xml_file}, output saved to {cleaned_file}")
 
-folder_path = annex
-process_folder(folder_path)
+path_to_annex = annex
+process_folder(path_to_annex)

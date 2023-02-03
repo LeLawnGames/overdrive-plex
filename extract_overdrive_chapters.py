@@ -56,16 +56,20 @@ def load_mp3(total, dir, file):
         name = re.sub(r"^\*(.+)\*$", r"\1", name)
         name = re.sub(
             r"\s*\([^)]*\)$", "", name
-        )  '''ignore any sub-chapter markers from Overdrive'''
+        )  
+        '''ignore any sub-chapter markers from Overdrive'''
         name = re.sub(
             r"\s+\(?continued\)?$", "", name
-        )  '''ignore any sub-chapter markers from Overdrive'''
+        )  
+        '''ignore any sub-chapter markers from Overdrive'''
         name = re.sub(
             r"\s+-\s*$", "", name
-        )  '''ignore any sub-chapter markers from Overdrive'''
+        )  
+        '''ignore any sub-chapter markers from Overdrive'''
         name = re.sub(
             r"^Dis[kc]\s+\d+\W*$", "", name
-        )  '''ignore any disk markers from Overdrive'''
+        )  
+        '''ignore any disk markers from Overdrive'''
         name = name.strip()
         t_parts = list(length.split(":"))
         t_parts.reverse()
