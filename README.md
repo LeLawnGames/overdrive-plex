@@ -35,7 +35,7 @@ I've organized my directory into the following folder structures mainly because 
 ## Setup
 ### Config
 
-Make sure that you have edited the config.py and config.env files to accurately reflect your system/folder structures.
+Copy template_config.py to a new file named config.py and update the paths to reflect your local folder structures. Do the same with config.env.template renaming it to config.env.
 
 ### Calling the Script
 
