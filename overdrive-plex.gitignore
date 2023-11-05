@@ -1,2 +1,4 @@
 __pycache__/
 /.DS_Store
+config.py
+config.env
