@@ -5,13 +5,13 @@ but you could easily adjust the setup to fit your preferences
 '''
 
 '''Where the unpackaged odm mp3s will get moved'''
-annex="/Users/jonas/Documents/SERVER/BOOKS/01_ANNEX"
+annex="PATH/TO/ANNEX"
 
 '''Where chapterized and labeled mp3s will be stored'''
-circulation="/Users/jonas/Documents/SERVER/BOOKS/02_CIRCULATION"
+circulation="PATH/TO/CIRCULATION"
 
 '''Where the final finished product will land'''
-bookshelf="/Users/jonas/Documents/SERVER/BOOKS/03_BOOKSHELF"
+bookshelf="PATH/TO/BOOKSHELF"
 
 '''Where the scraps go'''
-archive="/Users/jonas/Documents/SERVER/BOOKS/00_ARCHIVE"
+archive="PATH/TO/ARCHIVE"
