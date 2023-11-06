@@ -7,7 +7,7 @@ from config import annex,circulation,archive
 
 AudioSegment.converter = "/opt/homebrew/Cellar/ffmpeg/5.1.2_3/bin/ffmpeg"
 AudioSegment.ffmpeg = "/opt/homebrew/Cellar/ffmpeg/5.1.2_3/bin/ffmpeg"
-AudioSegment.ffprobe ="/opt/homebrew/Cellar/ffmpeg/5.1.2_3/bin/ffmpeg"
+AudioSegment.ffprobe ="/opt/homebrew/Cellar/ffmpeg/5.1.2_3/bin/ffmpeg" 
 
 def export_audio_file(start, end, name):
     start_ms = int(start)
@@ -18,6 +18,7 @@ def export_audio_file(start, end, name):
     author_name = folder.split(" - ")[0].strip()
     export_folder = os.path.join(destination_path, author_name, folder_name)
     author_folder = os.path.join(destination_path, author_name)
+    
     '''If an author folder doesn't already exist it makes one'''
     if not os.path.exists(author_folder):
         os.makedirs(author_folder)

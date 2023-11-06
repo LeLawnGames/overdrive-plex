@@ -25,7 +25,7 @@ do
 
         # Check if the output contains the specific LicenseError message
         if echo "$output" | grep -q "<ErrorCode>1003</ErrorCode>"; then
-            echo "License error detected for file: $file"
+            echo "License error detected for file: $file. Redownload the ODM."
             echo "$output"  # Optionally log this output to a file
             break  # Break out of the while loop and skip this file
         elif [ $exit_status -eq 0 ]; then
