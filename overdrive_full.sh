@@ -24,7 +24,6 @@ python3 chapter_ms.py
 python3 durations.py
 
 #export labeled audio and archive original folder
-# FIX: MAKE SURE IT CAN ADD TO EXISTING AUTHOR FOLDER
 python3 00_exportchapters.py
 
 #tag the exported audio with proper metadata
