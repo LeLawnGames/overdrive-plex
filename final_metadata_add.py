@@ -4,28 +4,54 @@ import os
 import shutil
 import json
 import re
-from mutagen.id3 import ID3, APIC, TIT2, TPE1, TCOM, TCON, TSOA, TRCK, TIT3, TALB, COMM
+from mutagen.id3 import ID3, APIC, TIT2, TPE1, TCOM, TCON, TRCK, TALB
 from config import circulation,bookshelf
 
 def traverse_directory(directory):
-    '''Iterate through all subfolders and files'''
+    '''Iterate through all subfolders & create cleaned_metadata.json'''
     for root, dirs, files in os.walk(directory):
         for dir in dirs:
             subfolder_path = os.path.join(root, dir)
-            if os.path.exists(os.path.join(subfolder_path, "cleaned_metadata.json")):
-                add_metadata(subfolder_path)
+            metadata_file = os.path.join(subfolder_path, "cleaned_metadata.json")
+            if os.path.exists(metadata_file):
+                metadata = read_metadata(metadata_file)
+                if metadata is None:
+                    print("Skipping due to json error")
+                    continue
+                add_metadata_to_files(subfolder_path, metadata)
 
-def add_metadata(directory):
-    '''Get the metadata from the cleaned_metadata.json file in the current subfolder'''
-    with open(os.path.join(directory, "cleaned_metadata.json"), "r") as f:
-        json_data = json.load(f)
-        artist = json_data.get("Author", "")
-        composer = json_data.get("Narrator", "")
-        genre = json_data.get("Subjects", "")
-        album_title = json_data.get("Title", "")
+def read_metadata(metadata_file):
+    '''Read and return json data from the given metadata file'''
+    try:
+        with open(metadata_file, "r") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error reading metadata file {metadata_file}: {e}")
+        return None
 
-    '''Replace all occurrences of -s with "'s" in the album title'''
-    album_title = re.sub("-s", "'s", album_title)
+def get_album_title(metadata):
+    '''Extract the Book Title from metadata and clean it'''
+    album_title = metadata.get("Title", "")
+    return re.sub(r"-s\b", "'s", album_title)
+
+def get_artist(metadata):
+    '''Extract the Author from metadata'''
+    return metadata.get("Author", "")
+
+def get_composer(metadata):
+    '''Extract the Narrator from metadata'''
+    return metadata.get("Narrator", "")
+
+def get_genre(metadata):
+    '''Extract the Subjects from metadata'''
+    return metadata.get("Subjects", "")
+
+def add_metadata_to_files(directory, metadata):
+    '''Add metadata to all chapterized mp3s in the directory'''
+    album_title = get_album_title(metadata)
+    artist = get_artist(metadata)
+    composer = get_composer(metadata)
+    genre = get_genre(metadata)
 
     '''Get a list of all mp3 files in the current directory'''
     mp3_files = [f for f in os.listdir(directory) if f.endswith(".mp3")]
@@ -38,7 +64,7 @@ def add_metadata(directory):
         mp3_file_path = os.path.join(directory, mp3_file)
 
         '''Extract the title of the mp3 file'''
-        file_name, file_ext = os.path.splitext(mp3_file)
+        file_name = os.path.splitext(mp3_file)
         title = file_name.lstrip("0123456789_")
 
         '''Add the track number to the file using ID3'''
@@ -63,7 +89,7 @@ def add_metadata(directory):
                 audio.add(APIC(encoding=3, mime='image/jpeg', type=3, desc='Cover', data=albumart.read()))
                 audio.save()
 
-'''Point the script at a directory'''
+'''Point the script at your Circulation folder'''
 directory = circulation
 
 traverse_directory(directory)
