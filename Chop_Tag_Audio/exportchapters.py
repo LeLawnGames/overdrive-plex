@@ -1,9 +1,8 @@
-import sys
-import random
 import os
 import shutil
 from pydub import AudioSegment
 from XML_JSON.json_scripts import load_config
+from Chop_Tag_Audio.progress_bar import process_progress, get_chapter_count
 
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 config_path = os.path.join(parent_dir, 'config.json')
@@ -28,20 +27,8 @@ def export_audio_file(combined, start_ms, end_ms, name, circulation, author_name
     return export_folder  # Return the folder path where the file was exported
 
 def split_mp3s(annex, circulation):
-    update_messages = [
-    "Getting close...",
-    "Hang in there...",
-    "Still running...",
-    "Almost done...",
-    "It'll all be over soon...",
-    "Bear with me..."
-    ]
-
-    # Shuffle the list of messages
-    random.shuffle(update_messages)
-
-    # An iterator over the shuffled list of messages
-    message_cycle = iter(update_messages)
+    total_chapters = get_chapter_count(annex)
+    overall_progress_bar = process_progress(total_chapters)
 
     for folder in sorted(os.listdir(annex)):
         folder_path = os.path.join(annex, folder)
@@ -69,16 +56,9 @@ def split_mp3s(annex, circulation):
                     export_folder = export_audio_file(combined, start_ms, end_ms, formatted_name, circulation, author_name.strip(), folder_name.strip())
                     artwork_and_metadata(export_folder, folder_path)
 
+                    overall_progress_bar.update(1)
+
                     file_count += 1  # Increment file_count after each file is exported
-
-                message = next(message_cycle, None)
-
-                if message is None:  # If the end of the list is reached, shuffle and restart
-                    random.shuffle(update_messages)
-                    message_cycle = iter(update_messages)
-                    message = next(message_cycle)
-
-                print(message)
                 
             except Exception as e:
                 print(f"Error processing {folder}: {e}")
