@@ -21,6 +21,7 @@ circulation = config['circulation']
 bookshelf = config['bookshelf']
 
 def chop_tag_audio():
+    print("Splitting audio files into chapters & adding metadata (this may take a moment, find something to do)...")
     split_mp3s(annex, circulation)
     traverse_directory(circulation, bookshelf)
 

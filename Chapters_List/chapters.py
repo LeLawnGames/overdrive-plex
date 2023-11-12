@@ -23,7 +23,6 @@ def chapters_list():
     extract_chapters(annex)
     add_ms_to_chapters(annex)
     ms_to_durations(annex)
-    print("Splitting audio files into chapters & adding metadata (this may take a moment)...")
 
 if __name__ == '__main__':
     chapters_list()
