@@ -1,0 +1,9 @@
+{
+    "queue" : "/YOUR/SYSTEM/PATH/TO/ODMS",
+    "annex" : "/YOUR/SYSTEM/PATH/TO/01_ANNEX",
+    "circulation" : "/YOUR/SYSTEM/PATH/TO/02_CIRCULATION",
+    "bookshelf" : "/YOUR/SYSTEM/PATH/TO/03_BOOKSHELF",
+    "archive" : "/YOUR/SYSTEM/PATH/TO/00_ARCHIVE",
+
+    "ffmpeg" : "typically looks like this(/opt/homebrew/Cellar/ffmpeg/5.1.2_3/bin/ffmpeg)"
+}
