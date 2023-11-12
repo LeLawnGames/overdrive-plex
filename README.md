@@ -15,12 +15,11 @@ I will note that **I am not an expert**. I taught myself how to use python and b
 
 ### This code assumes you have installed the following:
 
-### Stand Alone
+#### Stand Alone
 - **[chbrown/overdrive](https://github.com/chbrown/overdrive)**
-- **[python3](https://www.python.org/)**
 - **[ffmpeg](https://github.com/jiaaro/pydub#getting-ffmpeg-set-up)**
 
-### In requirements.txt
+#### In requirements.txt
 - **[pydub](https://github.com/jiaaro/pydub/)**
 - **[mutagen](https://mutagen.readthedocs.io/en/latest/)**
 
