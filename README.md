@@ -15,13 +15,14 @@ I will note that **I am not an expert**. I taught myself how to use python and b
 
 ### This code assumes you have installed the following:
 
+### Stand Alone
 - **[chbrown/overdrive](https://github.com/chbrown/overdrive)**
 - **[python3](https://www.python.org/)**
-- **[pydub](https://github.com/jiaaro/pydub/)**
 - **[ffmpeg](https://github.com/jiaaro/pydub#getting-ffmpeg-set-up)**
-- **[mutagen](https://mutagen.readthedocs.io/en/latest/)**
 
-Reference the linked repositories for tips and tricks on setting up each one. (pydub & mutagen included in requirements.txt but ffmpeg needs to be installed globally as the python version results in occassional glitches.)
+### In requirements.txt
+- **[pydub](https://github.com/jiaaro/pydub/)**
+- **[mutagen](https://mutagen.readthedocs.io/en/latest/)**
 
 ## Organization
 I've organized my directory into the following folder structures mainly because I find it easier to follow the process when I'm visualizing the steps, but it should go without saying that you can mix and match this to your liking.
