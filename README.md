@@ -15,7 +15,7 @@ I will note that **I am not an expert**. I taught myself how to use python and b
 
 ### This code assumes you have installed the following:
 
-#### Stand alone
+#### Standalone
 - **[chbrown/overdrive](https://github.com/chbrown/overdrive)**
 - **[ffmpeg](https://github.com/jiaaro/pydub#getting-ffmpeg-set-up)**
 
