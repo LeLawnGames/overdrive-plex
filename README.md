@@ -35,11 +35,11 @@ I've organized my directory into the following folder structures mainly because 
 ## Setup
 ### Config
 
-Copy template_config.py to a new file named config.py and update the paths to reflect your local folder structures. Do the same with config.env.template renaming it to config.env.
+Copy template_config.json to a new file named config.json and update the paths to reflect your local folder structures.
 
 ### Calling the Script
 
-The main bash script assumes that all of the scripts are sitting in the same folder, if that's not the case make sure you adjust the parameters accordingly before running.
+Call main.py
 
 ### Note on .odm's
 
