@@ -26,23 +26,13 @@ I will note that **I am not an expert**. I taught myself how to use python and b
 ## Organization
 I've organized my directory into the following folder structures mainly because I find it easier to follow the process when I'm visualizing the steps, but it should go without saying that you can mix and match this to your liking.
 
-'''
 - BOOKS
-    ├── 00_ARCHIVE
-    ├── 01_ANNEX
-    ├── 02_CIRCULATION
-    └── 03_BOOKSHELF
+      - 00_ARCHIVE
+      - 01_ANNEX
+      - 02_CIRCULATION
+      - 03_BOOKSHELF
 - QUEUE
-    └── Downloaded .odm's
-''' 
-  root_directory/
-├── BOOKS
-│   ├── 00_ARCHIVE
-│   └── file2.ext
-├── sub_directory2/
-│   ├── file3.ext
-│   └── file4.ext
-└── file_in_root.ext
+      - Downloaded .odm's
     
 ## Setup
 ### Config
