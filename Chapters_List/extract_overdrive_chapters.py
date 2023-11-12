@@ -101,18 +101,11 @@ def visit(dirname, filenames):
         with open("overdrive_chapters.txt", "w") as file:
             for name, length in all_chapters.items():
                 chapstr = f"{timestr(length)} {name}"
-                print(chapstr)
                 file.write(chapstr + "\n")
     # print(repr(all_chapters))
 
-
-if __name__ == "__main__":
-
-    if len(sys.argv) > 1:
-        path = os.path.abspath(sys.argv[1])
-    else:
-        path = os.path.abspath(".")
-
-    for dirname, dirs, files in os.walk(path, topdown=True):
+def extract_chapters(path="."):
+    abs_path = os.path.abspath(path)
+    for dirname, dirs, files in os.walk(abs_path, topdown=True):
         dirs[:] = [d for d in dirs if d not in {".git", ".direnv"}]
         visit(dirname, files)

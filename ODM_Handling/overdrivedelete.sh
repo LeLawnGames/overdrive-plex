@@ -5,9 +5,8 @@
 #It extracts the contents of the odm into a temp directory so as to point the metadata
 #file to the export path of the contents of the odm and then deletes the leftover files
 
-source config.env
-folder=$queue
-annex=$annex
+folder=$QUEUE
+annex=$ANNEX
 
 for file in $folder/*.odm
 do
@@ -25,7 +24,7 @@ do
 
         # Check if the output contains the specific LicenseError message
         if echo "$output" | grep -q "<ErrorCode>1003</ErrorCode>"; then
-            echo "License error detected for file: $file"
+            echo "License error detected for file: $file. Redownload the ODM."
             echo "$output"  # Optionally log this output to a file
             break  # Break out of the while loop and skip this file
         elif [ $exit_status -eq 0 ]; then
@@ -43,12 +42,12 @@ do
         echo "downloaded_folder: $downloaded_folder"
 
         # Move the downloaded folder to the destination
-        mv "$downloaded_folder" "$annex"
+        mv "$downloaded_folder" "$ANNEX"
 
         # Move the .odm.metadata to the downloaded folder
         metadata_file=$(find "$folder" -name "*.odm.metadata")
         if [ -n "$metadata_file" ]; then
-            mv "$metadata_file" "$annex/$(basename "$downloaded_folder")"
+            mv "$metadata_file" "$ANNEX/$(basename "$downloaded_folder")"
         fi
     else
         echo "No downloaded folder found for $file, potentially due to earlier license error."
