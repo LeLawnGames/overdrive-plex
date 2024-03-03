@@ -10,8 +10,10 @@ def process_directories(directory):
     '''Iterate through all subfolders in each author's directory & create cleaned_metadata.json'''
     for author_name in os.listdir(directory): 
         author_path = os.path.join(directory, author_name)
-        if os.path.isdir(author_path):  
-            for book_title in os.listdir(author_path): 
+        if os.path.isdir(author_path): 
+            for book_title in os.listdir(author_path):
+                if book_title == '.DS_Store':  # Skip .DS_Store files/folders at this level, update for your systems specs
+                    continue
                 book_path = os.path.join(author_path, book_title)
                 metadata_file = os.path.join(book_path, "cleaned_metadata.json")
                 if os.path.exists(metadata_file):
@@ -104,6 +106,8 @@ def meta_to_mp3(directory, bookshelf):
         author_path = os.path.join(directory, author_name)
         if os.path.isdir(author_path):
             for book_title in os.listdir(author_path):
+                if book_title == '.DS_Store':  # Skip .DS_Store files/folders at this level
+                    continue
                 book_path = os.path.join(author_path, book_title)
                 destination_path = os.path.join(bookshelf, author_name, book_title)
                 os.makedirs(os.path.dirname(destination_path), exist_ok=True)

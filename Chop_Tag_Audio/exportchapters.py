@@ -39,6 +39,7 @@ def split_mp3s(annex, circulation):
                 combined = AudioSegment.empty()
                 for mp3_file in mp3_files:
                     combined += AudioSegment.from_file(os.path.join(folder_path, mp3_file))
+                    overall_progress_bar.update(1)
                 combined = combined.set_channels(1)  # Assuming you want mono audio
 
                 labels_file = os.path.join(folder_path, "overdrive_chapters_ms_spans.txt")

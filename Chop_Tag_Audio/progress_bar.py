@@ -22,6 +22,7 @@ def get_chapter_count(directory):
             file_path = os.path.join(root, filename)
             with open(file_path, 'r') as f:
                 total_chapters += sum(1 for _ in f)
+        total_chapters += len(fnmatch.filter(files, '*.mp3'))
     return total_chapters
 
 def process_progress(total_chapters):
